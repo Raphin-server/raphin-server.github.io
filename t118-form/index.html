@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Анкета студента · 1 курс · Т118</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">1 курс · Т118</div>
+    <h1>Анкета студента</h1>
+    <p>Данные для социального паспорта группы в системе НОБД (BALAZHAN). Заполнение займёт около 5 минут, лучше делать это вместе с родителями.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card notice" id="privacy">
+    <h2>Конфиденциальность</h2>
+    <p>Ответы уходят только куратору группы в закрытую таблицу. На этом сайте и в открытом доступе они не хранятся. Данные нужны только для внесения в НОБД и потом не передаются третьим лицам.</p>
+    <p class="muted">Анкета нужна только студентам, которым ещё <b>нет 18 лет</b>. Если вам уже исполнилось 18, заполнять её не нужно.</p>
+  </section>
+
+  <form id="form" novalidate autocomplete="off">
+    <input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+    <section class="card">
+      <h2><span class="num">1</span>Основные данные</h2>
+      <div class="grid2">
+        <label class="field">Выберите курс
+          <select id="course" disabled><option>1 курс</option></select></label>
+        <label class="field">Группа
+          <select id="group" disabled><option>Т118</option></select></label>
+      </div>
+
+      <label class="field req">ФИО студента <b class="star">*</b>
+        <input id="fio" type="text" placeholder="Фамилия Имя Отчество" autocomplete="off">
+        <small class="err" data-for="fio"></small></label>
+
+      <label class="check"><input type="checkbox" id="foreign"> Иностранный гражданин</label>
+
+      <div id="foreignBox" class="sub" hidden>
+        <p class="hint">Обязательны ФИО и дата рождения. Страна гражданства, паспорт и ИИН необязательны; при наличии укажите действительный ИИН.</p>
+        <label class="field">Страна гражданства
+          <select id="country"></select></label>
+        <label class="field">Паспорт
+          <input id="passport" type="text" placeholder="Номер паспорта"></label>
+      </div>
+
+      <label class="field" id="iinLabel"><span id="iinTitle">ИИН студента</span>
+        <input id="iin" type="text" inputmode="numeric" maxlength="12" placeholder="12 цифр">
+        <small class="ok" id="iinInfo"></small>
+        <small class="err" data-for="iin"></small></label>
+
+      <div class="grid2">
+        <label class="field req">Дата рождения <b class="star">*</b>
+          <input id="birth" type="date">
+          <small class="err" data-for="birth"></small></label>
+        <label class="field" id="genderLabel">Пол
+          <select id="gender"></select>
+          <small class="hint" id="genderHint">Для граждан РК определяется по ИИН автоматически</small>
+          <small class="err" data-for="gender"></small></label>
+      </div>
+      <div id="ageBox" class="age" hidden></div>
+    </section>
+
+    <section class="card" id="block2">
+      <h2><span class="num">2</span>Данные для социального паспорта</h2>
+      <p class="muted">Все поля этого блока необязательные, но чем полнее, тем лучше.</p>
+
+      <h3>Сведения о родителях</h3>
+      <fieldset class="field"><legend>Национальность</legend><div class="opts" data-radio="nationality"></div></fieldset>
+      <label class="field">Отец <input id="father" type="text" placeholder="ФИО отца"></label>
+      <label class="field">Мать <input id="mother" type="text" placeholder="ФИО матери"></label>
+      <label class="field">Опекун / попечитель <input id="guardian" type="text" placeholder="ФИО (если есть)"></label>
+      <fieldset class="field"><legend>Образование отца</legend><div class="opts" data-radio="eduF"></div></fieldset>
+      <fieldset class="field"><legend>Образование матери</legend><div class="opts" data-radio="eduM"></div></fieldset>
+      <label class="field">Место работы отца <input id="workF" type="text" placeholder="Организация, должность"></label>
+      <label class="field">Место работы матери <input id="workM" type="text" placeholder="Организация, должность"></label>
+      <label class="field">Место работы опекуна <input id="workG" type="text" placeholder="Организация, должность"></label>
+      <label class="field">Адрес проживания <input id="address" type="text" placeholder="Город/село, улица, дом, квартира"></label>
+      <fieldset class="field"><legend>Место проживания</legend><div class="opts" data-radio="place"></div></fieldset>
+      <fieldset class="field"><legend>Тип жилья</legend><div class="opts" data-radio="housing"></div></fieldset>
+      <div class="grid3">
+        <label class="field">Телефон матери <input id="phoneM" class="phone" type="tel" inputmode="numeric" placeholder="+7 700 000 00 00"><small class="err" data-for="phoneM"></small></label>
+        <label class="field">Телефон отца <input id="phoneF" class="phone" type="tel" inputmode="numeric" placeholder="+7 700 000 00 00"><small class="err" data-for="phoneF"></small></label>
+        <label class="field">Телефон <input id="phone" class="phone" type="tel" inputmode="numeric" placeholder="+7 700 000 00 00"><small class="hint">Ваш номер. Формат: +7 7XX XXX XX XX</small><small class="err" data-for="phone"></small></label>
+      </div>
+
+      <h3>Состав семьи</h3>
+      <fieldset class="field"><legend>Состав семьи</legend><div class="opts" data-radio="family"></div></fieldset>
+      <fieldset class="field sub" id="parentsBox" hidden><legend>Наличие родителей</legend>
+        <p class="hint">Можно отметить несколько.</p><div class="opts" data-check="parents"></div></fieldset>
+      <fieldset class="field"><legend>Проживает с отчимом / мачехой / с сожителем / сожительницей родителя</legend>
+        <p class="hint">Отметьте, если применимо.</p><div class="opts" data-check="step"></div></fieldset>
+
+      <label class="field">Количество детей в семье
+        <input id="kids" class="num" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0">
+        <small class="err" data-for="kids"></small></label>
+      <div id="kidsBox" class="sub" hidden>
+        <p class="hint">Сумма по возрастам должна равняться общему числу детей (включая вас).</p>
+        <div class="grid2">
+          <label class="field">Которым по счету ребенком является обучающийся <input id="kidsOrder" class="num" type="text" inputmode="numeric" placeholder="0"></label>
+          <label class="field">Из них совершеннолетних <input id="kidsAdult" class="num" type="text" inputmode="numeric" placeholder="0"></label>
+          <label class="field">Из них школьного возраста <input id="kidsSchool" class="num" type="text" inputmode="numeric" placeholder="0"></label>
+          <label class="field">Из них дошкольного возраста <input id="kidsPre" class="num" type="text" inputmode="numeric" placeholder="0"></label>
+        </div>
+        <small class="err" data-for="kidsSum"></small>
+      </div>
+
+      <h3>Социальные категории</h3>
+      <fieldset class="field"><legend class="sr">Социальные категории</legend>
+        <p class="hint">Отметьте все подходящие категории.</p><div class="opts" data-check="social"></div></fieldset>
+      <fieldset class="field sub" id="pedBox" hidden><legend>Основания повышенного педагогического внимания</legend>
+        <p class="hint">Можно выбрать несколько пунктов.</p><div class="opts" data-check="ped"></div></fieldset>
+
+      <h3>Относится к следующим категориям обучающихся и воспитанников</h3>
+      <fieldset class="field"><legend class="sr">Категории</legend>
+        <p class="hint">Отметьте подходящие пункты перечня.</p><div class="opts" data-check="cats"></div></fieldset>
+
+      <h3>Относится к получателям следующих государственных услуг</h3>
+      <fieldset class="field"><legend class="sr">Госуслуги</legend>
+        <p class="hint">Отметьте подходящие государственные услуги.</p><div class="opts" data-check="services"></div></fieldset>
+    </section>
+
+    <section class="card">
+      <label class="check consent"><input type="checkbox" id="consent"> Я подтверждаю, что данные верны, и согласен(на) на их передачу куратору для внесения в НОБД.</label>
+      <small class="err" data-for="consent"></small>
+      <div class="summary" id="summary" hidden></div>
+      <button type="submit" id="submit" class="btn">Отправить анкету</button>
+      <p class="muted small" id="demo" hidden>Демо-режим: адрес таблицы не указан в config.js, анкета никуда не отправляется.</p>
+    </section>
+  </form>
+
+  <section class="card done" id="done" hidden>
+    <div class="icon">✓</div>
+    <h2>Спасибо! Анкета отправлена</h2>
+    <p>Куратор получил ваши данные. Если что-то заполнили неправильно, напишите куратору.</p>
+    <button class="btn ghost" id="again" type="button">Заполнить ещё одну анкету</button>
+  </section>
+
+  <section class="card adult" id="adult" hidden>
+    <div class="icon">🎓</div>
+    <h2>Заполнять не нужно</h2>
+    <p>Вам уже исполнилось 18 лет. Эта анкета нужна только несовершеннолетним студентам, поэтому вам ничего делать не надо. Спасибо!</p>
+    <button class="btn ghost" id="back" type="button">Я ошибся(лась) с датой</button>
+  </section>
+</main>
+<footer class="wrap foot">Куратор группы Т118 · анкета для НОБД</footer>
+
+<script src="config.js"></script>
+<script src="countries.js"></script>
+<script src="fields.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
